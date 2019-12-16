@@ -83,6 +83,76 @@
 
 <p><strong>最后向我最可爱的人承认错误。</strong></p>
 <p><img src="/2019/12/14/snow/2E224430BF2002A5EFE6C2B3137A02BF.jpg" alt></p>
+<h2 id="pta-第7题"><a href="#pta-第7题" class="headerlink" title="pta 第7题"></a>pta 第7题</h2><p>输入格式:</p>
+<p>输入4行4列的整型二维数组。<br>输出格式:</p>
+<p>若有鞍点，输入鞍点以及其位置；若没有鞍点，输出“It is not exist!”。<br>输入样例1:</p>
+<p>在这里给出一组输入。例如：</p>
+<p>2 3 9 5</p>
+<p>6 7 8 3</p>
+<p>0 5 7 5</p>
+<p>2 1 8 3</p>
+<p>输出样例1:</p>
+<p>在这里给出相应的输出。例如：</p>
+<p>a[2][2]=7</p>
+<p>输入样例2:</p>
+<p>在这里给出一组输入。例如：</p>
+<p>2 3 9 5</p>
+<p>6 7 8 3</p>
+<p>1 5 6 7</p>
+<p>2 1 8 3</p>
+<p>输出样例2:</p>
+<p>在这里给出相应的输出。例如：</p>
+<p>It is not exist!</p>
+<hr>
+<hr>
+<p>下面来分析这道题，<br><strong>*首先明白什么是鞍点（找出二维数组中的鞍点，即该位置上的元素在该行上最大，在该列上最小。也有可能没有鞍点。）</strong></p>
+<p>这道题还是推荐用排除法，就是排除所有不可能的情况。</p>
+<p>首先还是考虑输入</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>考虑一个问题，，如何才能表示行最大，列最小呢？？？</p>
+<p><strong>先想想</strong></p>
+<p>我想你已经知道了<br>在这之前先上之前做过的题目</p>
+<p><strong>4.无重复数字的3位数问题。用1、2、3、4等4个数字组成无重复数字的3位数，将这些3位数据全部输出。 编程提示： ① 可填在百位、十位、个位的数字都是1、2、3、4。 ② 首先组成所有的排列，然后去掉不满足条件的排列。 ③ 该问题可用三重循环实现。</strong><br>123</p>
+<p>124</p>
+<p>132</p>
+<p>134</p>
+<p>142</p>
+<p>143</p>
+<p>213</p>
+<p>214</p>
+<p>231</p>
+<p>234</p>
+<p>241</p>
+<p>243</p>
+<p>312</p>
+<p>314</p>
+<p>321</p>
+<p>324</p>
+<p>341</p>
+<p>342</p>
+<p>412</p>
+<p>413</p>
+<p>421</p>
+<p>423</p>
+<p>431</p>
+<p>432</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k,a,b,c;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">100</span>;i&lt;=<span class="number">999</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">       a=i/<span class="number">100</span>;</span><br><span class="line">        b=i/<span class="number">10</span>%<span class="number">10</span>;</span><br><span class="line">        c=i%<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;=<span class="number">4</span>&amp;&amp;b&gt;<span class="number">0</span>&amp;&amp;b&lt;=<span class="number">4</span>&amp;&amp;c&gt;<span class="number">0</span>&amp;&amp;c&lt;=<span class="number">4</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a!=b&amp;&amp;a!=c&amp;&amp;b!=c)</span><br><span class="line">            &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们来考虑如何类比写出答案</p>
+<p>首先是行最小<br>是不是满足</p>
+<hr>
+<p>a[i][j]&lt;=a[0][j]&amp;&amp;a[i][j]&lt;=a[1][j]&amp;&amp;a[i][j]&lt;=a[2][j]&amp;&amp;a[i][j]&lt;=a[3][j],就可以了这样就满足行最小，那么同理列最大这样来表示a[i][j]&gt;=a[i][0]&amp;&amp;a[i][j]&gt;=a[i][0]&amp;&amp;<br>a[i][j]&gt;=a[i][1]&amp;&amp;a[i][j]&gt;=a[i][2]&amp;&amp;a[i][j]&gt;=a[i][3] </p>
+<hr>
+<p><strong>下面来完整一下代码</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line"> &#123;</span><br><span class="line">     <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)</span><br><span class="line">     &#123;  </span><br><span class="line">          <span class="keyword">if</span>(a[i][j]&lt;=a[<span class="number">0</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">1</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">2</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">3</span>][j]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">0</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">1</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">2</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">3</span>])</span><br><span class="line">              &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"a[%d][%d]=%d\n"</span>,i,j,a[i][j]);</span><br><span class="line">         k=<span class="number">0</span>;</span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<pre><code>下面来解释一下k的作用是什么，k用来解释第二种情况，也就是不可能没有鞍点。
+所以在开头要声明k=1
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>][<span class="number">5</span>],i,k=<span class="number">1</span>,j;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><p><strong>下面贴出完整代码</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">5</span>][<span class="number">5</span>],i,k=<span class="number">1</span>,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)</span><br><span class="line">        &#123;  </span><br><span class="line">             <span class="keyword">if</span>(a[i][j]&lt;=a[<span class="number">0</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">1</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">2</span>][j]&amp;&amp;a[i][j]&lt;=a[<span class="number">3</span>][j]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">0</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">1</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">2</span>]&amp;&amp;a[i][j]&gt;=a[i][<span class="number">3</span>])</span><br><span class="line">                 &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"a[%d][%d]=%d\n"</span>,i,j,a[i][j]);</span><br><span class="line">            k=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"It is not exist!"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/14/snow/E4A0FC2C288A7A47DDCA94B7CDE48D7B.jpg" alt></p>
 
 
     <!-- Social share choices -->
