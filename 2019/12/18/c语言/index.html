@@ -87,7 +87,7 @@
 <meta property="og:description" content="123456789101112131415print(&quot;&quot;&quot;　　 へ　　　　　／|　　&#x2F;＼7　　　 ∠＿&#x2F;　 &#x2F;　│　　 ／　／　│　Z ＿,＜　／　　 &#x2F;&#96;ヽ　│　　　　　ヽ　　 &#x2F;　　〉　 Y　　　　　&#96;　 &#x2F;　　&#x2F;　ｲ●　､　●　　⊂⊃〈　　&#x2F;　()　 へ　　　　|">
 <meta property="og:image" content="http:&#x2F;&#x2F;8023zbq.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;c%E8%AF%AD%E8%A8%80&#x2F;47A014AB91E5642A726C476010E4AB39.jpg">
 <meta property="article:published_time" content="2019-12-18T01:18:40.000Z">
-<meta property="article:modified_time" content="2019-12-18T07:27:18.845Z">
+<meta property="article:modified_time" content="2019-12-18T13:10:36.446Z">
 <meta property="article:author" content="阿云">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;8023zbq.com&#x2F;2019&#x2F;12&#x2F;18&#x2F;c%E8%AF%AD%E8%A8%80&#x2F;47A014AB91E5642A726C476010E4AB39.jpg">
@@ -238,7 +238,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿云">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -405,8 +405,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(j=<span class="number">97</span>;j&lt;=<span class="number">122</span>;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b[j]!=<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c-&gt;%d\n"</span>,j,b[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">65</span>;j&lt;=<span class="number">90</span>;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b[j]!=<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c-&gt;%d\n"</span>,j,b[j]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>这样就更好理解为什么if(b[j]!=0)<br>的含义，他只统计出现的字母，因为之前全部归(b[150]={0})，所以不可能统计出来没打上去的字母的个数。如果没有这个if答案就不对，它统计了97到122之间所有的个数，但是b[j]并不一定有。</p>
 <h2 id="7-7-字符串转换为整数"><a href="#7-7-字符串转换为整数" class="headerlink" title="7-7 字符串转换为整数"></a>7-7 字符串转换为整数</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">120</span>];</span><br><span class="line">    <span class="keyword">int</span> b=<span class="number">0</span>,i;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;a[i]!=<span class="string">'\0'</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;<span class="number">48</span>&amp;&amp;a[i]&lt;<span class="number">58</span>)</span><br><span class="line">            b=b*<span class="number">10</span>+a[i]<span class="number">-48</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<p>看着代码很简单。。。</p>
 
       
     </div>
@@ -504,6 +503,10 @@
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="阿云" />
             
               <p class="site-author-name" itemprop="name">阿云</p>
               <p class="site-description motion-element" itemprop="description">我将融入剧烈斗争的大人世界，要在那边孤军奋战，必须变得比任何人都坚不可摧。</p>
