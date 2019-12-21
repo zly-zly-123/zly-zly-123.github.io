@@ -46,7 +46,7 @@
   var a_idx = 0;
   jQuery(document).ready(function ($) {
     $("body").click(function (e) {
-      var a = new Array("可爱", "乖巧", "憨憨", "喜欢", "阿倩", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+      var a = new Array("you", "are", "my", "today", "and", "all", "of", "my", "tomorrows", "You are my today and all of my tomorrows", "Here on earth,joy is your", "❁✽✽✼❀❀❅❇❁❆✼✽✿❊❀✻==");
       var $i = $("<span/>").text(a[a_idx]);
       a_idx = (a_idx + 1) % a.length;
       var x = e.pageX,
