@@ -12,7 +12,7 @@ const ap = new APlayer({
       {
         name: '歌曲',
         artist: '无',
-        url: 'https://music.163.com/song?id=1396049476',
+        url: 'http://music.163.com/song?id=1396049476&userid=1658911367',
         cover: 'http://oeff2vktt.bkt.clouddn.com/image/8.jpg',
       },
       {
